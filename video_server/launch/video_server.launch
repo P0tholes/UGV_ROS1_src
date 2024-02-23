@@ -1,0 +1,9 @@
+<launch>
+  <node
+    pkg="video_server"
+    type="video_stream_node.py"
+    name="video_stream_node" 
+    output="screen"
+  />
+  
+</launch> 
