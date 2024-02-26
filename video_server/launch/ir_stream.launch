@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find video_server)/launch/ir_proc.launch"/>
+  <node pkg="video_server" type="ir_stream_node.py" name="ir_flask_server_node" output="screen" />
+</launch>

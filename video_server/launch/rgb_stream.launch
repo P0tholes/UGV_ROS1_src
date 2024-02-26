@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find video_server)/launch/rgb_proc.launch"/>
+  <node pkg="video_server" type="video_stream_node.py" name="rgb_flask_server_node" output="screen" />
+</launch>

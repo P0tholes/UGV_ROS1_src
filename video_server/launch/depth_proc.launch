@@ -1,0 +1,12 @@
+<launch>
+  <!-- Launch the image_proc node with ROS_NAMESPACE -->
+  <group ns="camera/depth">
+    <node pkg="image_proc" type="image_proc" name="image_proc" output="screen">
+      <!-- Set the input and output topics with ROS_NAMESPACE -->
+      <remap from="image_raw" to="image_raw"/>
+      <remap from="image" to="image_processed"/>
+      
+    
+   </node>
+  </group>
+</launch>

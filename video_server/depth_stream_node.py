@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 from flask import Flask, render_template, Response, request
@@ -14,7 +14,8 @@ from std_msgs.msg import Int32
 app_kinect = Flask(__name__)
 app_control_robot = Flask(__name__)
 bridge = CvBridge()
-imageModePath = '/camera/rgb/image_color'
+imageModePath = '/camera/depth/image_color'
+cv_image = None
 
 
 
@@ -61,14 +62,15 @@ def listener():
     global image_subscriber
     global imageModePath
     cv_image = None
-    rospy.init_node('rgb_flask_server_node')
+    
+    rospy.init_node('depth_flask_server_node')
     
     image_subscriber = rospy.Subscriber(imageModePath, Image, kinect_image_callback)
     
     print(imageModePath)
     
     app_kinect.run(host='0.0.0.0', port=5000, debug=True)
-    rate = rospy.Rate(60)
+    rate = rospy.Rate(20)
     while not rospy.is_shutdown():
         rate.sleep()
 
@@ -82,5 +84,3 @@ if __name__ == '__main__':
     
     #listener()
     print("running listener thread")
-    
-    
