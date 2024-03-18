@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 from flask import Flask, render_template, Response, request
@@ -76,7 +76,7 @@ def video_feed():
 def integer_callback(msg):
     global selected_topic
     global image_subscriber
-    topics = ['/camera/rgb/image_color', '/camera/ir/image_raw', '/camera/depth/image_raw']
+    topics = ['/camera/rgb/image_color', '/camera/ir/image_raw', '/depth_top_down']
     new_topic = topics[msg.data]
     if new_topic != selected_topic:
         rospy.loginfo(f"Switching from topic {selected_topic} to topic {new_topic}")

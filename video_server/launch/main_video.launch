@@ -3,5 +3,5 @@
   <node pkg="video_server" type="video_control_handler.py" name="video_control_handler" output="screen"/>
 
     <!-- Wait for the first script to finish, then launch the second script -->
-    <node pkg="video_server" type="video_launch_manager.py" name="flask_video_node" output="screen" launch-prefix="xterm -e 'bash -c'"/>
+    <node pkg="video_server" type="video_launch_manager.py" name="flask_video_node" output="screen" launch-prefix="xterm -e"/>
 </launch>
